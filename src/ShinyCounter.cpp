@@ -65,6 +65,7 @@ ShinyCounter::~ShinyCounter()
 void ShinyCounter::run()
 {
     ShinyDatabase sd("hunts.db");
+    sd.createTable();
     c.setCount(sd.getCount(targetHunt));
 
     while(w.screen.isOpen())

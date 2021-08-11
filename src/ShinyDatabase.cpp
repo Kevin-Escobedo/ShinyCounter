@@ -23,6 +23,13 @@ void ShinyDatabase::createTable()
 void ShinyDatabase::insertData(const char* target, const int count)
 {
     char values[64];
+
+	if(target == nullptr)
+	{
+		fprintf(stderr, "SQL Error: target cannot be null\n");
+		return;
+	}
+
 	sprintf(values, "VALUES('%s', %d);", target, count);
 	std::string dataValues(values);
 	std::string sqlCommand = "INSERT INTO HUNTS(TARGET, COUNT) ";
@@ -84,10 +91,15 @@ int ShinyDatabase::getCount(const char* target)
 
 	else
 	{
-		std::string* data = results[0];
-		const int currentCount = std::stoi(data[1]);
-		delete[] data;
+		if(results.size() == 1)
+		{
+			std::string* data = results[0];
+			const int currentCount = std::stoi(data[1]);
+			delete[] data;
 
-		return currentCount;
+			return currentCount;
+		}
+
+		return 0;
 	}
 }
