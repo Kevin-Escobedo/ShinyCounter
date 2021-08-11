@@ -18,8 +18,17 @@ int main(int argc, char** argv)
         y = atoi(argv[2]);
     }
 
-    ShinyCounter sc("Shiny Counter", x, y, target);
-    sc.run();
+    if(target != nullptr)
+    {
+        ShinyCounter sc("Shiny Counter", x, y, target);
+        sc.run();
+    }
+
+    else
+    {
+        std::cerr<<"Target cannot be nullptr"<<std::endl;
+        return 1;
+    }
 
     return 0;
 }
