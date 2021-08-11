@@ -3,7 +3,7 @@
 ShinyCounter::ShinyCounter(const char* name, const unsigned int x, const unsigned int y, const char* target)
 :w(name, x, y), c(), text(), font(), targetHunt(target)
 {
-    if(!font.loadFromFile("sansation.ttf"))
+    if(!font.loadFromFile("resources/sansation.ttf"))
     {
 
     }
@@ -16,7 +16,7 @@ ShinyCounter::ShinyCounter(const char* name, const unsigned int x, const unsigne
 ShinyCounter::ShinyCounter(const char* name, const sf::Vector2u& dimensions, const char* target)
 :w(name, dimensions), c(), text(), font(), targetHunt(target)
 {    
-    if(!font.loadFromFile("sansation.ttf"))
+    if(!font.loadFromFile("resources/sansation.ttf"))
     {
 
     }
@@ -29,7 +29,7 @@ ShinyCounter::ShinyCounter(const char* name, const sf::Vector2u& dimensions, con
 ShinyCounter::ShinyCounter(const ShinyCounter& sc)
 :w(sc.w), c(sc.c), text(), font(), targetHunt(sc.targetHunt)
 {
-    if(!font.loadFromFile("sansation.ttf"))
+    if(!font.loadFromFile("resources/sansation.ttf"))
     {
 
     }
@@ -45,7 +45,7 @@ ShinyCounter& ShinyCounter::operator =(const ShinyCounter& sc)
     c = sc.c;
     targetHunt = sc.targetHunt;
 
-    if(!font.loadFromFile("sansation.ttf"))
+    if(!font.loadFromFile("resources/sansation.ttf"))
     {
 
     }
